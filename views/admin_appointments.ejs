@@ -1,0 +1,46 @@
+<%- include("Header_admin.ejs"); -%>
+
+<div class="padding">
+  <br><br>
+  <h1>Here are the appointments for today <%= adminName %></h1>
+  <br>
+  <% if (tuple.length===0){ %>
+    <h2> There are no appointments today! </h2>
+  <% } %>
+  <% if (tuple.length>0){ %>
+    <table class="table table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th>Appointment date</th>
+          <th>Appointment time</th>
+          <th>Doctor</th>
+          <th>Patient</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (var j=0; j<tuple.length; j++){ %>
+          <tr>
+              <td>
+                <%= tuple[j].appdate %>
+              </td>
+              <td>
+                <%= tuple[j].apptime %>
+              </td>
+              <td>
+                <%= tuple[j].docid %>
+              </td>
+              <td>
+                <%= tuple[j].pid %>
+              </td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  <% } %>
+  <br><br>
+  <a href="admin_addAppointments"><button type="button" class="btn btn-outline-primary btn-lg">Add an appointment</button></a>
+  <a href="admin_cancelAppointments"><button type="button" class="btn btn-outline-warning btn-lg">Cancel an appointment</button></a>
+  <br><br>
+</div>
+
+<%- include("Footer_admin.ejs"); -%>

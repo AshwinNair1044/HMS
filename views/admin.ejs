@@ -1,0 +1,13 @@
+<%- include("Header_admin.ejs"); -%>
+<div class="main_content">
+  <div class="header">Welcome <%= adminName %>! Have a nice day.</div>
+  <br>
+  <div>
+    <h1 class="spaceInButton"> Your details </h1>
+    <br><br>
+    <h5 class="spaceInButton"><strong>Name:</strong> <%= info.adminname %></h5>
+    <h5 class="spaceInButton"><strong>Email:</strong> <%= info.adminemail %></h5>
+    <h5 class="spaceInButton"><strong>Job:</strong> <%= info.job %></h5>
+  </div>
+</div>
+<%- include("Footer_admin.ejs"); -%>

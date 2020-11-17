@@ -1,0 +1,15 @@
+<%- include("Header_doctor.ejs"); -%>
+
+<div class="main_content">
+  <div class="header">Welcome <%= doctorName %>! Have a nice day.</div>
+  <br>
+  <div>
+    <h1 class="spaceInButton"> Your details </h1>
+    <br><br>
+    <h5 class="spaceInButton"><strong>Name:</strong> <%= info.docname %></h5>
+    <h5 class="spaceInButton"><strong>Email:</strong> <%= info.docemail %></h5>
+    <h5 class="spaceInButton"><strong>Specialisation:</strong> <%= info.specialization %></h5>
+  </div>
+</div>
+
+<%- include("Footer_doctor.ejs"); -%>

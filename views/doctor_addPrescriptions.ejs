@@ -1,0 +1,42 @@
+<%- include("Header_doctor.ejs"); -%>
+
+
+<form action="doctor_prescriptions" method="POST" class="padding-new">
+  <h1>Please enter the following to add the prescriptions</h1>
+  <br><br>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="pres_no">Prescription Number</label>
+      <input type="number" class="form-control" name="pres_no" min="100" max="999" required>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="pid">Patient ID</label>
+      <select class="custom-select d-block w-100" name="pid" required>
+        <option value="">Choose...</option>
+        <% for (var i=0; i<options2.length; i++){ %>
+          <option><%= options2[i].pid %></option>
+        <% } %>
+      </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="medname">Medicine Name</label>
+      <input type="text" class="form-control" name="medname" required>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="adminid">Admin ID</label>
+      <select class="custom-select d-block w-100" name="adminid" required>
+        <option value="">Choose...</option>
+        <% for (var i=0; i<options.length; i++){ %>
+          <option><%= options[i].adminid %></option>
+        <% } %>
+      </select>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-outline-primary">Add prescription</button>
+</form>
+
+
+<%- include("Footer_doctor.ejs"); -%>

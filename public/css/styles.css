@@ -1,0 +1,127 @@
+/* custom css for main tags */
+html {
+  scroll-behavior: smooth;
+}
+
+h1 {
+  padding: 10px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* INSIDE NAVBAR */
+/* css for brand image and name */
+.logo-1 {
+  float: left;
+  margin: 1rem;
+  width: 45px;
+}
+.logo-2 {
+  font-family: 'Abril Fatface', cursive;
+  float: right;
+  margin-top: 15px;
+  color: #fff;
+}
+/* -------------------------------------------------------------------------- */
+/* INSIDE CAROUSEL */
+/* this class ensures that dimensions of carousel is intact */
+.cropped {
+  width: 100%;
+  height: 615px;
+}
+/* -------------------------------------------------------------------------- */
+/* INSIDE THE MAIN SECTION */
+.main {
+  padding: 4rem 6rem;
+  /* 50px from top and bottom; 100px from left and right */
+}
+/* spacing is used to remove padding from navbar */
+.bg {
+  background-color: '#99f3bd';
+}
+/* used for the buttons on main page */
+.icon {
+  color: red;
+}
+.intro-heading {
+  font-family: 'Roboto', sans-serif;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-top: 50px;
+
+}
+
+
+/* footer section */
+.spacing-2 {
+  padding: 25px 25px;
+}
+.dev {
+  padding: 15px;
+}
+
+.solid {
+  border-top: 80px solid;
+  margin: 0;
+  color: #DC3545;
+}
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  font-size: 24px;
+  padding: 25px;
+
+}
+
+.list-inline-item {
+  font-size: 11;
+}
+
+table {
+  margin: 0 0 50px 50px;
+  border-width: thick;
+  border-color: maroon;
+  max-width: 500px;
+}
+
+.heading-pad {
+  margin-left: 2.5rem;
+}

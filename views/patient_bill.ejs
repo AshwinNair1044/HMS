@@ -1,0 +1,63 @@
+<%- include("Header_patient.ejs") -%>
+<div class="padding">
+  <div id="toTable">
+    <br>
+    <h1 class="centre"> Appolo X</h1>
+    <h2 class="centre"> Bill details</h2>
+    <hr>
+    <% if (relation.length===0){ %>
+    <h2> You haven't done any test. </h2>
+    <% } %>
+    <% if (relation.length>0){ %>
+    <h3> Your tests: </h3>
+    <table class="table table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th> Price </th>
+          <th> Test name </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (var i=0; i<relation.length; i++){ %>
+        <tr>
+          <td>
+            <%= relation[i].price %>
+          </td>
+          <td>
+            <%= relation[i].testname %>
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <% } %>
+    <hr>
+    <h1> Net payable amount = consultation fee(₹1000) + test fees</h1>
+    <h1> Total amount => ₹<%= amount+1000 %></h1>
+    <br><br><br>
+  </div>
+  <span>See our available tests <a href="testNames">here</a>.</span>
+  <button type="button" class="btn btn-outline-success btn-lg" id="btnExport">Download bill</button>
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script type="text/javascript">
+  $("body").on("click", "#btnExport", function() {
+    html2canvas($('#toTable')[0], {
+      onrendered: function(canvas) {
+        var data = canvas.toDataURL();
+        var docDefinition = {
+          content: [{
+            image: data,
+            width: 500
+          }]
+        };
+        pdfMake.createPdf(docDefinition).download("patientBill.pdf");
+      }
+    });
+  });
+</script>
+
+<%- include("Footer_patient.ejs") -%>

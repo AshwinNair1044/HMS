@@ -1,0 +1,71 @@
+<html>
+
+<head>
+  <title>Login</title>
+  <!-- custom stylesheet -->
+  <link rel="stylesheet" href="css/login.css">
+  <!-- favicon -->
+  <link rel="icon" href="css/images/favicon.ico">
+  <!-- bootstrap css -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script>
+  function validateForm(){
+    var Password = document.myForm.password.value;
+    var Type = document.myForm.user;
+    if (Password.length < 4){
+      alert("password length is too short!");
+      return false;
+    }
+    for (var i=0; i<Type.length; i++){
+      if (Type[i].checked){
+        return true;
+      }
+    }
+    alert("Please select one of the radio buttons");
+    return false;
+  }
+  </script>
+</head>
+
+<body>
+  <form name="myForm" action="/login" class="login needs-validation" method="post">
+    <header>Login</header>
+    <div class="field form-group">
+      <span class="fa fa-user"></span>
+      <input type="text" name="username" placeholder="Username" required>
+      <div class="invalid-feedback1">
+        Please provide a valid username.
+      </div>
+    </div>
+    <div class="field form-group">
+      <span class="fa fa-lock"></span>
+      <input type="password" name="password" placeholder="Password" required>
+      <div class="invalid-feedback2">
+        Please enter your password.
+      </div>
+    </div>
+    <br>
+    <div class="space">
+      <span>Doctor</span>
+      <input type="radio" name="user" value="doctor">
+      <span>Patient</span>
+      <input type="radio" name="user" value="patient">
+      <span>Admin</span>
+      <input type="radio" name="user" value="admin">
+    </div>
+    <br>
+
+    <button type="submit" name="credentials" class="submit" value="LOGIN" onclick="return validateForm();">LOGIN</button>
+
+    <span class="logn-form-copy">Don't have an account? <a href="signup" class="login-form__sign-up">Sign up</a></span>
+    <span class="logn-form-copy">Wanna know more about us? <a href="about" class="login-form__sign-up">about us</a></span>
+
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <!-- <script src="/temp.js" charset="utf-8"></script> -->
+</body>
+
+</html>

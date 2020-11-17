@@ -1,0 +1,48 @@
+<%- include("Header_patient.ejs") -%>
+
+<div class="padding">
+  <br><br><br>
+  <h1>Here are your test reports <%= patientName %></h1>
+  <br><br>
+  <% if (tuple.length>0){ %>
+    <table class="table table-hover table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <% for (var i=0; i<columns.length; i++){ %>
+            <% if (columns[i].name!='pid'){ %>
+              <th scope="col">
+                <%= columns[i].name %>
+              </th>
+            <% } %>
+          <% } %>
+        </tr>
+      </thead>
+      <tbody>
+        <% tuple.forEach((patient)=>{ %>
+          <tr>
+              <td>
+                <%= patient.rep_no %>
+              </td>
+              <td>
+                <%= patient.testname %>
+              </td>
+              <td>
+                <%= patient.diagnosis %>
+              </td>
+              <td>
+                <%= patient.docid %>
+              </td>
+              <td>
+                <%= patient.adminid %>
+              </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } %>
+  <% if (tuple.length===0){ %>
+    <h2> You haven't done any tests up till now </h2>
+  <% } %>
+</div>
+
+<%- include("Footer_patient.ejs") -%>

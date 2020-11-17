@@ -1,0 +1,16 @@
+<%- include('Header_patient.ejs'); -%>
+
+<div class="main_content">
+  <div class="header">Welcome <%= patientName %>! Have a nice day.</div>
+  <br>
+  <div>
+    <h1 class="spaceInButton">Your details </h1>
+    <br><br>
+    <h5 class="spaceInButton"><strong>Name:</strong> <%= info[0].pname %></h5>
+    <h5 class="spaceInButton"><strong>Age:</strong> <%= info[0].age %></h5>
+    <h5 class="spaceInButton"><strong>Phone Number:</strong> <%= info[0].phone_no %></h5>
+    <h5 class="spaceInButton"><strong>Email:</strong> <%= info[0].pemail %></h5>
+    <h5 class="spaceInButton"><strong>Residence:</strong> <%= info[0].house_no %>, <%= info[0].parea %>, <%= info[0].city %>, <%= info[0].state %>, <%= info[0].pin %></h5>
+  </div>
+</div>
+<%- include('Footer_patient.ejs'); -%>

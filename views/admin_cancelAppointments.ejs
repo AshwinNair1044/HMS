@@ -1,0 +1,31 @@
+<%- include("Header_admin.ejs"); -%>
+
+<form action="admin_cancelAppointments" method="POST" class="padding-new">
+  <h1>Please enter the following to cancel an appointment</h1>
+  <br><br>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="appdate">Appointment Date</label>
+      <select class="custom-select d-block w-100" name="appdate" required>
+        <option value="">Choose...</option>
+        <% for (var i=0; i<dates.length; i++){ %>
+          <option><%= dates[i].appdate %></option>
+        <% } %>
+      </select>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="pid">Patient ID</label>
+      <select class="custom-select d-block w-100" name="pid" required>
+        <option value="">Choose...</option>
+        <% for (var i=0; i<patients.length; i++){ %>
+          <option><%= patients[i].pid %></option>
+        <% } %>
+      </select>
+    </div>
+  </div>
+  <h3>Are you sure you wish to cancel the appointment?</h3>
+  <a href="admin_appointments"><button type="button" class="btn btn-outline-primary" name="button">Go back</button></a>
+  <button type="submit" class="btn btn-outline-warning">Cancel appointment</button>
+</form>
+
+<%- include("Footer_admin.ejs"); -%>

@@ -1,0 +1,49 @@
+<%- include("Header_admin.ejs"); -%>
+
+<div class="padding">
+  <br><br>
+  <h1>Here are the prescriptions you've issued <%= adminName %></h1>
+  <br>
+  <% if (tuple.length===0){ %>
+  <h2>You haven't issued any prescriptions</h2>
+  <% } %>
+  <% if (tuple.length>0){ %>
+  <table class="table table-hover table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <% for (var i=0; i<columns.length; i++){ %>
+        <% if (columns[i].name!='adminid'){ %>
+        <th scope="col">
+          <%= columns[i].name %>
+        </th>
+        <% } %>
+        <% } %>
+      </tr>
+    </thead>
+    <tbody>
+      <% tuple.forEach((patient)=>{ %>
+      <tr>
+        <td>
+          <%= patient.pres_no %>
+        </td>
+        <td>
+          <%= patient.medname %>
+        </td>
+        <td>
+          <%= patient.docid %>
+        </td>
+        <td>
+          <%= patient.pid %>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <% } %>
+  <br>
+  <a href="admin_addPrescriptions"><button type="button" class="btn btn-outline-primary btn-lg">Add prescription</button></a>
+  <br><br>
+  <br><br>
+</div>
+
+<%- include("Footer_admin.ejs"); -%>

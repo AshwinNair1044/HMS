@@ -1,0 +1,45 @@
+<%- include("Header_patient.ejs"); -%>
+
+<div class="padding">
+  <br><br><br>
+  <h1>Here are your prescriptions <%= patientName %></h1>
+  <br><br>
+  <% if (tuple.length===0) { %>
+  <h2> You don't have any prescriptions issued to your name </h2>
+  <% } %>
+  <% if(tuple.length>0){ %>
+  <table class="table table-hover table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <% for (var i=0; i<columns.length; i++){ %>
+        <% if (columns[i].name!='pid'){ %>
+        <th scope="col">
+          <%= columns[i].name %>
+        </th>
+        <% } %>
+        <% } %>
+      </tr>
+    </thead>
+    <tbody>
+      <% tuple.forEach((patient)=>{ %>
+      <tr>
+        <td>
+          <%= patient.pres_no %>
+        </td>
+        <td>
+          <%= patient.medname %>
+        </td>
+        <td>
+          <%= patient.docid %>
+        </td>
+        <td>
+          <%= patient.adminid %>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <% } %>
+</div>
+
+<%- include("Footer_patient.ejs"); -%>
